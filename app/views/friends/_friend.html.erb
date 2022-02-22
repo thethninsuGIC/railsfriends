@@ -1,0 +1,26 @@
+<table class="table">
+  <div id="<%= dom_id friend %>">
+    <% if friend.user == current_user %>  
+      <thead>
+        <tr class="table-info">
+          <th scope="col"><strong>Name</strong></th>
+          <th scope="col"><strong>Email</strong></th>
+          <th scope="col"><strong>Phone</strong></th>
+          <th scope="col"><strong>Twitter</strong></th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to (friend.first_name + " " + friend.last_name), friend %>
+          </td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone %></td>
+          <td><%= friend.twitter %></td>
+          <td><%= button_to "Delete", friend, method: :delete, data: { confirm: 'Are you sure?'},  class:"btn btn-outline-danger btn-sm" %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </div>
+</table>
